@@ -97,10 +97,15 @@ document.getElementById("local_string_copy")
             }))
     }, true);
 
-document.getElementById("Iso_ex_utc_output").textContent = accessTime.toISO8601String(false, true);
-document.getElementById("Iso_ex_local_output").textContent = accessTime.toISO8601String(true, true);
-document.getElementById("Iso_ba_utc_output").textContent = accessTime.toISO8601String(false, false);
-document.getElementById("Iso_ba_local_output").textContent = accessTime.toISO8601String(true, false);
-document.getElementById("Unix_output").textContent = accessTime.getUNIXtime();
-document.getElementById("local_string_output").textContent = accessTime.toLocaleDateString("ja-JP", { year: "numeric", month: "2-digit", day: "2-digit" });
+let displayByJapaneseCharacteristic = new Intl.DateTimeFormat("js-JP", {
+    year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", fractionalSecondDigits: "2"
+});
+updatingTimeInterval = setInterval(() => {
+    document.getElementById("Iso_ex_utc_output").textContent = accessTime.toISO8601String(false, true);
+    document.getElementById("Iso_ex_local_output").textContent = accessTime.toISO8601String(true, true);
+    document.getElementById("Iso_ba_utc_output").textContent = accessTime.toISO8601String(false, false);
+    document.getElementById("Iso_ba_local_output").textContent = accessTime.toISO8601String(true, false);
+    document.getElementById("Unix_output").textContent = accessTime.getUNIXtime();
+    document.getElementById("local_string_output").textContent = displayByJapaneseCharacteristic.format()
 
+}, 10);
