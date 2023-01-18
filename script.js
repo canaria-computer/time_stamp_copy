@@ -5,7 +5,6 @@
  * @returns {String} ISO8601表記の文字列
  */
 Date.prototype.toISO8601String = function (useLocal = true, expand = true) {
-
     let res = "";
     if (useLocal) {
         res = this.getFullYear() + "-";
@@ -55,31 +54,30 @@ function zeroPadding(NUM, LEN) {
 // ---
 // ---
 // ---
-const accessTime = new Date();
 
-document.getElementById("Iso_ex_utc_copy")
-    .addEventListener("click", () => {
-        navigator.clipboard
-            .writeText(new Date().toISO8601String(false, true))
-    }, true);
+let $F1 = document.getElementById("Iso_ex_utc_copy");
+$F1.addEventListener("click", () => {
+    navigator.clipboard
+        .writeText(new Date().toISO8601String(false, true))
+}, true);
 
-document.getElementById("Iso_ex_local_copy")
-    .addEventListener("click", () => {
-        navigator.clipboard
-            .writeText(new Date().toISO8601String(true, true))
-    }, true);
+let $F2 = document.getElementById("Iso_ex_local_copy");
+$F2.addEventListener("click", () => {
+    navigator.clipboard
+        .writeText(new Date().toISO8601String(true, true))
+}, true);
 
-document.getElementById("Iso_ba_utc_copy")
-    .addEventListener("click", () => {
-        navigator.clipboard
-            .writeText(new Date().toISO8601String(false, false))
-    }, true);
+let $F3 = document.getElementById("Iso_ba_utc_copy");
+$F3.addEventListener("click", () => {
+    navigator.clipboard
+        .writeText(new Date().toISO8601String(false, false))
+}, true);
 
-document.getElementById("Iso_ba_local_copy")
-    .addEventListener("click", () => {
-        navigator.clipboard
-            .writeText(new Date().toISO8601String(true, false))
-    }, true);
+let $F4 = document.getElementById("Iso_ba_local_copy");
+$F4.addEventListener("click", () => {
+    navigator.clipboard
+        .writeText(new Date().toISO8601String(true, false))
+}, true);
 
 document.getElementById("Unix_copy")
     .addEventListener("click", () => {
@@ -101,11 +99,20 @@ let displayByJapaneseCharacteristic = new Intl.DateTimeFormat("js-JP", {
     year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", fractionalSecondDigits: "2"
 });
 updatingTimeInterval = setInterval(() => {
+    const accessTime = new Date();
     document.getElementById("Iso_ex_utc_output").textContent = accessTime.toISO8601String(false, true);
     document.getElementById("Iso_ex_local_output").textContent = accessTime.toISO8601String(true, true);
     document.getElementById("Iso_ba_utc_output").textContent = accessTime.toISO8601String(false, false);
     document.getElementById("Iso_ba_local_output").textContent = accessTime.toISO8601String(true, false);
     document.getElementById("Unix_output").textContent = accessTime.getUNIXtime();
     document.getElementById("local_string_output").textContent = displayByJapaneseCharacteristic.format()
-
 }, 10);
+
+document.addEventListener("keydown", event => {
+    switch (event.code) {
+        case "F1": $F1.click(); break;
+        case "F2": $F2.click(); break;
+        case "F3": $F3.click(); break;
+        case "F4": $F4.click(); break;
+    }
+})

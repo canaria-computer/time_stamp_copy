@@ -8,30 +8,30 @@
     <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
     <script defer src="script.js"></script>
+    <script async src="keyBlock.js"></script>
 </head>
 
 <body>
     <h1>タイムスタンプテキスト</h1>
-    <p>それぞれのボタンは、説明の形式のタイムスタンプテキストを取ることができます。
-        コンピュータシステムの仕様性質を考慮してもっとも小さい単位は秒です。</p>
+    <p>それぞれのボタンは、説明の形式のタイムスタンプテキストを取ることができます。</p>
 
     <h2>コピーボタン</h2>
-    <p><button id="Iso_ex_utc_copy">ISO 8601(extending from/拡張形式)タイムゾーンUTC</button></p>
-    <p><button id="Iso_ex_local_copy">ISO 8601(extending from/拡張形式)タイムゾーン地方時</button></p>
-    <p><button id="Iso_ba_utc_copy">ISO 8601(basic format/基本形式)タイムゾーンUTC</button></p>
-    <p><button id="Iso_ba_local_copy">ISO 8601(basic format/基本形式)タイムゾーン地方時</button></p>
+    <p><kbd>F1</kbd> <button id="Iso_ex_utc_copy">ISO 8601(extending format/拡張形式)タイムゾーンUTC</button></p>
+    <p><kbd>F2</kbd> <button id="Iso_ex_local_copy">ISO 8601(extending format/拡張形式)タイムゾーン地方時</button></p>
+    <p><kbd>F3</kbd> <button id="Iso_ba_utc_copy">ISO 8601(basic format/基本形式)タイムゾーンUTC</button></p>
+    <p><kbd>F4</kbd> <button id="Iso_ba_local_copy">ISO 8601(basic format/基本形式)タイムゾーン地方時</button></p>
     <p><button id="Unix_copy">UNIX time|POSIX time</button></p>
     <p><button id="local_string_copy">日本語特性による表示</button></p>
-    
+
     <h2>アクセス時の時刻</h2>
     <table>
         <tbody>
             <tr>
-                <th>ISO 8601(extending from/拡張形式)タイムゾーンUTC</th>
+                <th>ISO 8601(extending format/拡張形式)タイムゾーンUTC</th>
                 <td id="Iso_ex_utc_output">loading...</td>
             </tr>
             <tr>
-                <th>ISO 8601(extending from/拡張形式)タイムゾーン地方時</th>
+                <th>ISO 8601(extending format/拡張形式)タイムゾーン地方時</th>
                 <td id="Iso_ex_local_output">loading...</td>
             </tr>
             <tr>
